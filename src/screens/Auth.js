@@ -9,7 +9,7 @@ import RegisterForm from '../components/Auth/RegisterForm';
 import { layoutStyles } from "../styles";
 
 export default function Auth() {
-    const [showLogin, setShowLogin] = React.useState(false)
+    const [showLogin, setShowLogin] = React.useState(true)
 
     const handleChangeForm = () => setShowLogin(!showLogin)
 

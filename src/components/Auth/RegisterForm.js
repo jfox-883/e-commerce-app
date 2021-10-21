@@ -3,33 +3,48 @@ import { View } from "react-native";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
 import { TextInput, Button } from "react-native-paper";
+import Toast from 'react-native-root-toast'
+
+import { registerApi } from '../../api/user'
 
 import { formStyles } from "../../styles";
 import COLORS from "../../constants/colors";
 
 const INITIAL_VALUES = {
     email: '',
-    userName: '',
+    username: '',
     password: '',
     rePassword: ''
 }
 
 const VALID_SCHEMA = {
     email: Yup.string().email(true).required(true),
-    userName: Yup.string().required(true),
+    username: Yup.string().required(true),
     password: Yup.string().min(6).required(true),
     rePassword: Yup.string().min(6).required(true).oneOf([Yup.ref('password'), true])
 }
 
 export default function RegisterForm(props) {
     const { handleChangeForm } = props
+    const [loading, setLoading] = React.useState(false)
 
     const formik = useFormik({
         initialValues: INITIAL_VALUES,
         validationSchema: Yup.object(VALID_SCHEMA),
-            onSubmit: (formData) => {
-                console.log("Registro de Usuario");
-                console.log(formData);
+            onSubmit: async (formData) => {
+                setLoading(true)
+                try {
+                    const res = await registerApi(formData)
+                    if(res) Toast.show('Usuario registrdo exitosamente!!!', {
+                        position: Toast.positions.CENTER,
+                    })
+                    handleChangeForm()
+                } catch (error) {
+                    setLoading(false)
+                    Toast.show('Error al registrar el usuario', {
+                        position: Toast.positions.CENTER,
+                    })
+                }
             }
     })
 
@@ -39,6 +54,7 @@ export default function RegisterForm(props) {
                 label="Email" 
                 mode="outlined" 
                 style={formStyles.input} 
+                autoCapitalize='none'
                 theme={{colors: {primary: COLORS.primary }}}
                 onChangeText={(text) => formik.setFieldValue('email', text)}
                 value={formik.values.email}
@@ -48,9 +64,9 @@ export default function RegisterForm(props) {
                 label="Nombre Completo"
                 mode="outlined"
                 style={formStyles.input}
-                onChangeText={(text) => formik.setFieldValue('userName', text)}
-                value={formik.values.userName}
-                error={formik.errors.userName}
+                onChangeText={(text) => formik.setFieldValue('username', text)}
+                value={formik.values.username}
+                error={formik.errors.username}
             />
              <TextInput
                 label="Contraseña"
@@ -74,6 +90,7 @@ export default function RegisterForm(props) {
                 mode="contained" 
                 style={formStyles.btnSuccess}
                 onPress={formik.handleSubmit}
+                loading={loading}
             >
                 Registrarse
             </Button>
