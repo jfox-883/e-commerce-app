@@ -1,4 +1,4 @@
-import { API_URL } from '@env'
+import { API_URL } from '../constants/consts'
 
 export async function registerApi(formData) {
     try {

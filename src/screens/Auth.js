@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native'
-import { Headline } from "react-native-paper";
+import { Headline, Text } from "react-native-paper";
 
 
 import LoginForm from '../components/Auth/LoginForm';
@@ -16,7 +16,8 @@ export default function Auth() {
     return (
         <View style={layoutStyles.container}>
             <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? "padding" : "height"}>
-                <Headline style={styles.headlineText}>Bienvenido!!!</Headline>
+                <Headline style={styles.headlineText}>Welcome!!!</Headline>
+                <Text style={styles.text}>e-Commerce</Text>
                 {showLogin 
                     ? <LoginForm handleChangeForm={handleChangeForm}/> 
                     : <RegisterForm handleChangeForm={handleChangeForm} />}
@@ -29,5 +30,9 @@ const styles = StyleSheet.create({
     headlineText: {
         alignSelf: 'center',
         fontSize: 30,
+    },
+    text: {
+        alignSelf: 'center',
+        fontSize: 24
     }
 })

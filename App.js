@@ -7,8 +7,8 @@ import AuthContext from './src/context/AuthContext';
 
 import { setTokenApi, getTokenApi, removeTokenApi } from './src/api/token'
 
-import Auth from './src/screens/Auth'
-import Home from './src/screens/Home';
+import Auth from './src/screens/Auth';
+import AppNavigation from './src/navigation/AppNavigation';
 
 export default function App() {
   const [auth, setAuth] = React.useState(undefined)
@@ -54,7 +54,7 @@ export default function App() {
       <PaperProvider>
         <RootSiblingParent>
           {auth
-            ? <Home />
+            ? <AppNavigation />
             : <Auth />
           }
         </RootSiblingParent>

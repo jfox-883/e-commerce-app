@@ -60,7 +60,7 @@ export default function LoginForm(props) {
                 error={formik.errors.identifier}
             /> 
             <TextInput
-                label='Contraseña'
+                label='Password'
                 mode='outlined'
                 style={formStyles.input}
                 theme={{colors: {primary: COLORS.primary }}}
@@ -80,7 +80,7 @@ export default function LoginForm(props) {
                 onPress={formik.handleSubmit}
                 loading={loading}
             >
-                Iniciar Sesión
+                Login
             </Button>
             <Button 
                 mode='text'
@@ -88,7 +88,7 @@ export default function LoginForm(props) {
                 labelStyle={formStyles.btnTextLabel}
                 onPress={handleChangeForm}
             >
-                Registrarse
+                Sign Up
             </Button>
         </View>
     )

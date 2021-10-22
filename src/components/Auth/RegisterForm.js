@@ -61,7 +61,7 @@ export default function RegisterForm(props) {
                 error={formik.errors.email}
             />
             <TextInput
-                label="Nombre Completo"
+                label="Full Name"
                 mode="outlined"
                 style={formStyles.input}
                 onChangeText={(text) => formik.setFieldValue('username', text)}
@@ -69,7 +69,7 @@ export default function RegisterForm(props) {
                 error={formik.errors.username}
             />
              <TextInput
-                label="Contraseña"
+                label="Password"
                 mode="outlined"
                 style={formStyles.input}
                 onChangeText={(text) => formik.setFieldValue('password', text)}
@@ -78,7 +78,7 @@ export default function RegisterForm(props) {
                 secureTextEntry
             />
              <TextInput
-                label="Repetir contraseña"
+                label="Repeat Password"
                 mode="outlined"
                 style={formStyles.input}
                 onChangeText={(text) => formik.setFieldValue('rePassword', text)}
@@ -92,7 +92,7 @@ export default function RegisterForm(props) {
                 onPress={formik.handleSubmit}
                 loading={loading}
             >
-                Registrarse
+                Sign Up
             </Button>
             <Button 
                 mode="text" 
@@ -100,7 +100,7 @@ export default function RegisterForm(props) {
                 labelStyle={formStyles.btnTextLabel}
                 onPress={handleChangeForm}
             >
-                Iniciar sesión
+                Login
             </Button>
         </View>
     );
