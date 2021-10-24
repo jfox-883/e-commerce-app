@@ -29,7 +29,7 @@ export default function App() {
   }
 
   const authData = React.useMemo(() => ({
-    auth: undefined,
+    auth: auth,
     login,
     logout,
   }),

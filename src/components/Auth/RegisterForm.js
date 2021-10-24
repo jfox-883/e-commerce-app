@@ -27,6 +27,7 @@ const VALID_SCHEMA = {
 export default function RegisterForm(props) {
     const { handleChangeForm } = props
     const [loading, setLoading] = React.useState(false)
+    const [showPass, setShowPass] = React.useState(false)
 
     const formik = useFormik({
         initialValues: INITIAL_VALUES,
@@ -61,7 +62,7 @@ export default function RegisterForm(props) {
                 error={formik.errors.email}
             />
             <TextInput
-                label="Full Name"
+                label="User Name"
                 mode="outlined"
                 style={formStyles.input}
                 onChangeText={(text) => formik.setFieldValue('username', text)}
@@ -75,7 +76,12 @@ export default function RegisterForm(props) {
                 onChangeText={(text) => formik.setFieldValue('password', text)}
                 value={formik.values.password}
                 error={formik.errors.password}
-                secureTextEntry
+                secureTextEntry={!showPass}
+                right={<TextInput.Icon 
+                            name={showPass ? 'eye-off' : 'eye'} 
+                            onPress={() => setShowPass(!showPass)}
+                        />
+                        }
             />
              <TextInput
                 label="Repeat Password"
@@ -84,7 +90,12 @@ export default function RegisterForm(props) {
                 onChangeText={(text) => formik.setFieldValue('rePassword', text)}
                 value={formik.values.rePassword}
                 error={formik.errors.rePassword}
-                secureTextEntry
+                secureTextEntry={!showPass}
+                right={<TextInput.Icon 
+                    name={showPass ? 'eye-off' : 'eye'} 
+                    onPress={() => setShowPass(!showPass)}
+                />
+                }
             />
             <Button 
                 mode="contained" 

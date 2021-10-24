@@ -9,7 +9,7 @@ import COLORS from '../constants/colors';
 import Home from '../screens/Home';
 import Favorites from '../screens/Favorites';
 import Cart from '../screens/Cart';
-import Account from '../screens/Account';
+import AccountNavigation from './AccountNavigation';
 
 const Tab = createBottomTabNavigator()
 
@@ -61,30 +61,18 @@ export default function AppNavigation() {
                 <Tab.Screen 
                     name='Home'
                     component={Home}
-                    options={{
-                        title: 'Inicio',
-                    }}
                 />
                 <Tab.Screen 
                     name='Favorites'
                     component={Favorites}
-                    options={{
-                        title: 'Favoritos',
-                    }}
                 />
                 <Tab.Screen 
                     name='Cart'
                     component={Cart}
-                    options={{
-                        title: 'Carrito'
-                    }}
                 />
                 <Tab.Screen 
                     name='Account'
-                    component={Account}
-                    options={{
-                        title: 'Cuenta'
-                    }}
+                    component={AccountNavigation}
                 />
             </Tab.Navigator>
         </NavigationContainer>

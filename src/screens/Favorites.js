@@ -1,10 +1,20 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
+import Header from '../components/Header'
+import Search from '../components/Search/Search'
+
+import { layoutStyles } from '../styles'
+
 export default function Favorites() {
     return (
-        <View>
-            <Text>Favorites Screen</Text>
-        </View>
+        <>
+            <Header backgroundColor='#FFF'>
+                <Search />
+            </Header>
+            <View style={layoutStyles.container}>
+                <Text>Favorites Screen</Text>
+            </View>
+        </>
     )
 }

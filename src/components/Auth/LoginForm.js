@@ -17,7 +17,7 @@ const INITIAL_VALUES = {
 }
 
 const VALID_SCHEMA = {
-    identifier: Yup.string().email(true).required(true),
+    identifier: Yup.string().required(true),
     password: Yup.string().min(6).required(true),
 }
 
@@ -49,7 +49,7 @@ export default function LoginForm(props) {
     return (
         <View style={formStyles.main}>
             <TextInput 
-                label='email' 
+                label='Email or User Name' 
                 mode='outlined'
                 style={formStyles.input}
                 autoCapitalize='none'

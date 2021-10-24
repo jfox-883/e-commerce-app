@@ -1,10 +1,13 @@
 import { StyleSheet } from "react-native";
 
+import COLORS from '../constants/colors'
+
 const layoutStyles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        paddingTop: 30
+        paddingHorizontal: 10,
+        backgroundColor: COLORS.bgApp
     }
 })
 

@@ -7,6 +7,7 @@ import LoginForm from '../components/Auth/LoginForm';
 import RegisterForm from '../components/Auth/RegisterForm';
 
 import { layoutStyles } from "../styles";
+import COLORS from '../constants/colors';
 
 export default function Auth() {
     const [showLogin, setShowLogin] = React.useState(true)
@@ -16,7 +17,7 @@ export default function Auth() {
     return (
         <View style={layoutStyles.container}>
             <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? "padding" : "height"}>
-                <Headline style={styles.headlineText}>Welcome!!!</Headline>
+                <Headline style={styles.headlineText}>Welcome</Headline>
                 <Text style={styles.text}>e-Commerce</Text>
                 {showLogin 
                     ? <LoginForm handleChangeForm={handleChangeForm}/> 
@@ -33,6 +34,8 @@ const styles = StyleSheet.create({
     },
     text: {
         alignSelf: 'center',
-        fontSize: 24
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: COLORS.secondary
     }
 })

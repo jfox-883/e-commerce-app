@@ -38,3 +38,43 @@ export async function loginApi(formData) {
         return null
     }
 }
+
+export async function getMeApi(token) {
+    try {
+        const url = `${API_URL}/users/me`
+        const params = {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        }
+
+        const res = await fetch(url, params)
+        const result = await res.json()
+        return result
+    } catch (error) {
+        console.log(error)
+        return null
+    }
+}
+
+export async function updateUserApi(auth, formData) {
+    try {
+        const url = `${API_URL}/users/${auth.idUser}`
+        const params = {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${auth.token}`
+            },
+            body: JSON.stringify(formData)
+        }
+        const res = await fetch(url, params)
+        const result = await res.json()
+        return result
+    } catch (error) {
+        console.log(error)
+        return null
+    }
+}
