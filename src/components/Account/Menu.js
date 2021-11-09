@@ -63,7 +63,7 @@ export default function Menu() {
                     title='My Addresses'
                     description='Change your delivery addresses'
                     left={() => <List.Icon icon='map-marker'/>}
-                    onPress={() => console.log('Pressed')}
+                    onPress={() => navigation.navigate('Addresses')}
                 />
             </List.Section>
             <List.Section>

@@ -6,6 +6,8 @@ import ChangeName from '../screens/Account/ChangeName'
 import ChangeEmail from '../screens/Account/ChangeEmail'
 import ChangeUsername from '../screens/Account/ChangeUsername'
 import ChangePassword from '../screens/Account/ChangePassword'
+import Address from '../screens/Account/Address'
+import AddAddress from '../screens/Account/AddAddress'
 
 const Stack = createNativeStackNavigator()
 
@@ -50,6 +52,20 @@ export default function AccountNavigation() {
                 component={ChangePassword}
                 options={{
                     title: 'Change your password'
+                }}
+            />
+            <Stack.Screen 
+                name='Addresses'
+                component={Address}
+                options={{
+                    title: 'My Addresses'
+                }}
+            />
+            <Stack.Screen 
+                name='AddAddress'
+                component={AddAddress}
+                options={{
+                    title: 'Add a new address'
                 }}
             />
         </Stack.Navigator>
