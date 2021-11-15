@@ -32,7 +32,7 @@ export default function Account({ navigation }) {
                 <Title>Account</Title>
             </Header>
             {!user
-                ? <Loading size={100} color={COLORS.secondary} text='Getting info...'/>
+                ? <Loading size={100} color={COLORS.secondary} text='Getting info...' topRange={50}/>
                 : (
                     <View style={layoutStyles.container}>
                         <ScrollView>

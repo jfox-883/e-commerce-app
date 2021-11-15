@@ -7,7 +7,7 @@ import ChangeEmail from '../screens/Account/ChangeEmail'
 import ChangeUsername from '../screens/Account/ChangeUsername'
 import ChangePassword from '../screens/Account/ChangePassword'
 import Address from '../screens/Account/Address'
-import AddAddress from '../screens/Account/AddAddress'
+import HandleAddress from '../components/Address/HandleAddress'
 
 const Stack = createNativeStackNavigator()
 
@@ -62,10 +62,10 @@ export default function AccountNavigation() {
                 }}
             />
             <Stack.Screen 
-                name='AddAddress'
-                component={AddAddress}
+                name='HandleAddress'
+                component={HandleAddress}
                 options={{
-                    title: 'Add a new address'
+                    title: 'My address...'
                 }}
             />
         </Stack.Navigator>
